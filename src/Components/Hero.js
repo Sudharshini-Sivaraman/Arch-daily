@@ -10,18 +10,25 @@ const headerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   padding: '1rem',
   color: 'white',
+  position: 'fixed', // Fix the navbar at the top
+  top: 0, // Position at the top
+  left: 0,
+  right: 0,
+  zIndex: 1000, // Ensure the navbar is on top
 };
 
 const footerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
   padding: '1rem',
   color: 'white',
+  marginTop: '4rem', // Adjust for the navbar height
 };
 
 const heroStyle = {
   ...commonBackgroundStyle,
   minHeight: '100vh',
   position: 'relative',
+  paddingTop: '4rem', // Adjust for the navbar height
 };
 
 function ServiceCard({ title, description, image }) {
@@ -81,7 +88,12 @@ function ServicesCard() {
 }
 
 function Hero() {
+  const [showNavbarMenu, setShowNavbarMenu] = useState(false);
   const [showCards, setShowCards] = useState(false);
+
+  const toggleNavbarMenu = () => {
+    setShowNavbarMenu(!showNavbarMenu);
+  };
 
   const toggleCards = () => {
     setShowCards(!showCards);
@@ -95,13 +107,13 @@ function Hero() {
             <div className="text-white font-semibold text-xl">Arch Daily</div>
             <button
               className="md:hidden text-white hover:text-gray-300"
-              onClick={toggleCards}
+              onClick={toggleNavbarMenu}
             >
               Menu
             </button>
           </div>
           
-          {showCards && (
+          {showNavbarMenu && (
             <ul className="md:hidden bg-black absolute top-16 left-0 right-0 z-10 text-white">
               <li className="text-white hover:text-gray-300 py-2 text-center">
                 <a href="#">Home</a>
