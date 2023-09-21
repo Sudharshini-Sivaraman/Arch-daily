@@ -100,7 +100,7 @@ function Hero() {
               Menu
             </button>
           </div>
-          {/* Mobile Menu */}
+          
           {showCards && (
             <ul className="md:hidden bg-black absolute top-16 left-0 right-0 z-10 text-white">
               <li className="text-white hover:text-gray-300 py-2 text-center">
@@ -120,7 +120,7 @@ function Hero() {
               </li>
             </ul>
           )}
-          {/* Desktop Menu */}
+          
           <ul className="hidden md:flex space-x-10">
             <li className="text-white hover:text-gray-300">
               <a href="#">Home</a>
@@ -165,7 +165,7 @@ function Hero() {
           </button>
         </div>
       </header>
-      {/* Conditionally render ServicesCard */}
+      
       {showCards && <ServicesCard />}
       <div style={footerStyle}>
         <footer>
