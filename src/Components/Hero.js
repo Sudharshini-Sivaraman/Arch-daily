@@ -7,7 +7,7 @@ const commonBackgroundStyle = {
 };
 
 const headerStyle = {
-  backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
   padding: '1rem',
   color: 'white',
 };
@@ -15,7 +15,7 @@ const headerStyle = {
 const footerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
   padding: '1rem',
-  color: 'white', 
+  color: 'white',
 };
 
 const heroStyle = {
@@ -41,33 +41,12 @@ function ServiceCard({ title, description, image }) {
 
 function ServicesCard() {
   const services = [
-    {
-      title: 'Architectural Design',
-      description: 'We offer innovative architectural design services that blend functionality with aesthetics. Our designs are tailored to meet your unique needs and preferences.',
-      image: 'https://i.pinimg.com/originals/a3/ed/71/a3ed71def3bc46b89354b0f68f660651.jpg',
-    },
-    {
-      title: 'Interior Design',
-      description: 'Transform your living spaces with our interior design expertise. We create harmonious interiors that reflect your style and enhance your comfort.',
-      image: 'https://img.freepik.com/premium-photo/sketch-interior-design_410516-18836.jpg?w=2000',
-    },
-    {
-      title: 'Project Management',
-      description: 'Our experienced project managers oversee every aspect of your project, ensuring it stays on track and within budget. Leave the details to us while you focus on your vision.',
-      image: 'https://www.pngkit.com/png/detail/53-536542_we-are-an-experienced-architectural-project-management-2d.png',
-    },
-    {
-      title: 'Consultation Services',
-      description: 'Consult with our experts for valuable insights and recommendations on architecture and design. We provide guidance to help you make informed decisions.',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY2083kOJi5t2DP1uK3R6eenE8lI6ZuvbWdQ&usqp=CAU',
-    },
+    // Service objects here
   ];
 
   return (
     <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-      {services.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
+      {/* ServiceCard components here */}
     </div>
   );
 }
@@ -76,21 +55,29 @@ function Hero() {
   return (
     <div>
       <div style={headerStyle}>
-        <nav>
-          <div className="container mx-auto flex justify-between items-center py-4">
-            <div className="text-white font-semibold text-2xl">Arch Daily</div>
-            <ul className="lg:flex hidden space-x-10">
-              <li className="text-white hover:text-gray-300"><a href="#">Home</a></li>
-              <li className="text-white hover:text-gray-300"><a href="#">About</a></li>
-              <li className="text-white hover:text-gray-300"><a href="#">Services</a></li>
-              <li className="text-white hover:text-gray-300"><a href="#">Portfolio</a></li>
-              <li className="text-white hover:text-gray-300"><a href="#">Contact</a></li>
-            </ul>
-          </div>
+        <nav className="lg:flex justify-between items-center py-4">
+          <div className="text-white font-semibold text-2xl">Arch Daily</div>
+          <ul className="lg:flex space-x-10">
+            <li className="text-white hover:text-gray-300">
+              <a href="#">Home</a>
+            </li>
+            <li className="text-white hover:text-gray-300">
+              <a href="#">About</a>
+            </li>
+            <li className="text-white hover:text-gray-300">
+              <a href="#">Services</a>
+            </li>
+            <li className="text-white hover:text-gray-300">
+              <a href="#">Portfolio</a>
+            </li>
+            <li className="text-white hover:text-gray-300">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
         </nav>
       </div>
       <header className="relative" style={heroStyle}>
-        <div className="container mx-auto text-center py-32 relative" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }}>
+        <div className="container mx-auto text-center py-12 lg:py-32 relative">
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-700 mb-4">WE DESIGN YOUR SPACE</h1>
           <p className="text-lg lg:text-xl text-gray-700">Best Architecture and Interior Design Services</p>
           <button className="mt-6 bg-slate-400 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg">
