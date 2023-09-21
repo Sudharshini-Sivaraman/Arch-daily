@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const commonBackgroundStyle = {
   backgroundSize: 'cover',
@@ -26,7 +26,7 @@ const heroStyle = {
 
 function ServiceCard({ title, description, image }) {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 mb-4 text-center">
+    <div className="bg-white shadow-lg rounded-lg p-4 md:p-8 mb-4 text-center">
       <img
         src={image}
         alt={title}
@@ -41,23 +41,87 @@ function ServiceCard({ title, description, image }) {
 
 function ServicesCard() {
   const services = [
-    // Service objects here
+    {
+      title: 'Architectural Design',
+      description:
+        'We offer innovative architectural design services that blend functionality with aesthetics. Our designs are tailored to meet your unique needs and preferences.',
+      image:
+        'https://i.pinimg.com/originals/a3/ed/71/a3ed71def3bc46b89354b0f68f660651.jpg',
+    },
+    {
+      title: 'Interior Design',
+      description:
+        'Transform your living spaces with our interior design expertise. We create harmonious interiors that reflect your style and enhance your comfort.',
+      image:
+        'https://img.freepik.com/premium-photo/sketch-interior-design_410516-18836.jpg?w=2000',
+    },
+    {
+      title: 'Project Management',
+      description:
+        'Our experienced project managers oversee every aspect of your project, ensuring it stays on track and within budget. Leave the details to us while you focus on your vision.',
+      image:
+        'https://www.pngkit.com/png/detail/53-536542_we-are-an-experienced-architectural-project-management-2d.png',
+    },
+    {
+      title: 'Consultation Services',
+      description:
+        'Consult with our experts for valuable insights and recommendations on architecture and design. We provide guidance to help you make informed decisions.',
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY2083kOJi5t2DP1uK3R6eenE8lI6ZuvbWdQ&usqp=CAU',
+    },
   ];
 
   return (
-    <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-      {/* ServiceCard components here */}
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
     </div>
   );
 }
 
 function Hero() {
+  const [showCards, setShowCards] = useState(false);
+
+  const toggleCards = () => {
+    setShowCards(!showCards);
+  };
+
   return (
     <div>
       <div style={headerStyle}>
-        <nav className="lg:flex justify-between items-center py-4">
-          <div className="text-white font-semibold text-2xl">Arch Daily</div>
-          <ul className="lg:flex space-x-10">
+        <nav>
+          <div className="container mx-auto flex justify-between items-center py-4">
+            <div className="text-white font-semibold text-xl">Arch Daily</div>
+            <button
+              className="md:hidden text-white hover:text-gray-300"
+              onClick={toggleCards}
+            >
+              Menu
+            </button>
+          </div>
+          {/* Mobile Menu */}
+          {showCards && (
+            <ul className="md:hidden bg-black absolute top-16 left-0 right-0 z-10 text-white">
+              <li className="text-white hover:text-gray-300 py-2 text-center">
+                <a href="#">Home</a>
+              </li>
+              <li className="text-white hover:text-gray-300 py-2 text-center">
+                <a href="#">About</a>
+              </li>
+              <li className="text-white hover:text-gray-300 py-2 text-center">
+                <a href="#">Services</a>
+              </li>
+              <li className="text-white hover:text-gray-300 py-2 text-center">
+                <a href="#">Portfolio</a>
+              </li>
+              <li className="text-white hover:text-gray-300 py-2 text-center">
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          )}
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-10">
             <li className="text-white hover:text-gray-300">
               <a href="#">Home</a>
             </li>
@@ -77,19 +141,39 @@ function Hero() {
         </nav>
       </div>
       <header className="relative" style={heroStyle}>
-        <div className="container mx-auto text-center py-12 lg:py-32 relative">
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-700 mb-4">WE DESIGN YOUR SPACE</h1>
-          <p className="text-lg lg:text-xl text-gray-700">Best Architecture and Interior Design Services</p>
-          <button className="mt-6 bg-slate-400 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg">
+        <div
+          className="container mx-auto text-center py-16 md:py-32 relative"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+          }}
+        >
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-700 mb-4">
+            WE DESIGN YOUR SPACE
+          </h1>
+          <p className="text-base md:text-lg text-gray-700">
+            Best Architecture and Interior Design Services
+          </p>
+          <button
+            className="mt-6 bg-slate-400 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg"
+            onClick={toggleCards}
+          >
             Get Started
           </button>
-          <ServicesCard />
         </div>
       </header>
+      {/* Conditionally render ServicesCard */}
+      {showCards && <ServicesCard />}
       <div style={footerStyle}>
         <footer>
           <div className="container mx-auto text-center text-white">
-            <p>&copy; {new Date().getFullYear()} S Architecture. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} S Architecture. All rights
+              reserved.
+            </p>
             <p>Contact: contact@sarchitecture.com</p>
           </div>
         </footer>
