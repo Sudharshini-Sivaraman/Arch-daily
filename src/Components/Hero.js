@@ -24,7 +24,6 @@ const heroStyle = {
   position: 'relative',
 };
 
-
 function ServiceCard({ title, description, image }) {
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-4 text-center">
@@ -39,7 +38,6 @@ function ServiceCard({ title, description, image }) {
     </div>
   );
 }
-
 
 function ServicesCard() {
   const services = [
@@ -66,7 +64,7 @@ function ServicesCard() {
   ];
 
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+    <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
       {services.map((service, index) => (
         <ServiceCard key={index} {...service} />
       ))}
@@ -79,10 +77,9 @@ function Hero() {
     <div>
       <div style={headerStyle}>
         <nav>
-          
           <div className="container mx-auto flex justify-between items-center py-4">
             <div className="text-white font-semibold text-2xl">Arch Daily</div>
-            <ul className="flex space-x-10">
+            <ul className="lg:flex hidden space-x-10">
               <li className="text-white hover:text-gray-300"><a href="#">Home</a></li>
               <li className="text-white hover:text-gray-300"><a href="#">About</a></li>
               <li className="text-white hover:text-gray-300"><a href="#">Services</a></li>
@@ -94,12 +91,11 @@ function Hero() {
       </div>
       <header className="relative" style={heroStyle}>
         <div className="container mx-auto text-center py-32 relative" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }}>
-          <h1 className="text-4xl font-bold text-gray-700 mb-4">WE DESIGN YOUR SPACE</h1>
-          <p className="text-lg text-gray-700">Best Architecture and Interior Design Services</p>
+          <h1 className="text-4xl lg:text-6xl font-bold text-gray-700 mb-4">WE DESIGN YOUR SPACE</h1>
+          <p className="text-lg lg:text-xl text-gray-700">Best Architecture and Interior Design Services</p>
           <button className="mt-6 bg-slate-400 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg">
             Get Started
           </button>
-          {/* Include the Services Card Component */}
           <ServicesCard />
         </div>
       </header>
