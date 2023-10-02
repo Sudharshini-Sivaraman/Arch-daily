@@ -1,4 +1,3 @@
-// Navbar.js
 import React from 'react';
 
 function Navbar() {
@@ -7,7 +6,7 @@ function Navbar() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-semibold">Arch Daily</div>
-          <ul className="flex space-x-6">
+          <ul className="hidden md:flex space-x-6">
             <li>
               <a href="/">Home</a>
             </li>
@@ -24,6 +23,10 @@ function Navbar() {
               <a href="/contact">Contact</a>
             </li>
           </ul>
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+            {/* TODO: Add mobile menu button */}
+          </div>
         </div>
       </div>
     </nav>
