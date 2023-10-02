@@ -1,34 +1,33 @@
 import React, { useState } from 'react';
-
+import Layout from './Layout';
 const commonBackgroundStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundImage: 'url("https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fHww&w=1000&q=80")',
 };
-
 const headerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   padding: '1rem',
   color: 'white',
-  position: 'fixed', // Fix the navbar at the top
-  top: 0, // Position at the top
+  position: 'fixed', 
+  top: 0, 
   left: 0,
   right: 0,
-  zIndex: 1000, // Ensure the navbar is on top
+  zIndex: 1000, 
 };
 
 const footerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
   padding: '1rem',
   color: 'white',
-  marginTop: '4rem', // Adjust for the navbar height
+  marginTop: '4rem', 
 };
 
 const heroStyle = {
   ...commonBackgroundStyle,
   minHeight: '100vh',
   position: 'relative',
-  paddingTop: '4rem', // Adjust for the navbar height
+  paddingTop: '4rem', 
 };
 
 function ServiceCard({ title, description, image }) {
@@ -87,6 +86,7 @@ function ServicesCard() {
   );
 }
 
+
 function Hero() {
   const [showNavbarMenu, setShowNavbarMenu] = useState(false);
   const [showCards, setShowCards] = useState(false);
@@ -100,58 +100,9 @@ function Hero() {
   };
 
   return (
+    <Layout>
     <div>
-      <div style={headerStyle}>
-        <nav>
-          <div className="container mx-auto flex justify-between items-center py-4">
-            <div className="text-white font-semibold text-xl">Arch Daily</div>
-            <button
-              className="md:hidden text-white hover:text-gray-300"
-              onClick={toggleNavbarMenu}
-            >
-              Menu
-            </button>
-          </div>
-          
-          {showNavbarMenu && (
-            <ul className="md:hidden bg-black absolute top-16 left-0 right-0 z-10 text-white">
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="#">Home</a>
-              </li>
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="#">About</a>
-              </li>
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="#">Services</a>
-              </li>
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="#">Portfolio</a>
-              </li>
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          )}
-          
-          <ul className="hidden md:flex space-x-10">
-            <li className="text-white hover:text-gray-300">
-              <a href="#">Home</a>
-            </li>
-            <li className="text-white hover:text-gray-300">
-              <a href="#">About</a>
-            </li>
-            <li className="text-white hover:text-gray-300">
-              <a href="#">Services</a>
-            </li>
-            <li className="text-white hover:text-gray-300">
-              <a href="#">Portfolio</a>
-            </li>
-            <li className="text-white hover:text-gray-300">
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      
       <header className="relative" style={heroStyle}>
         <div
           className="container mx-auto text-center py-16 md:py-32 relative"
@@ -177,7 +128,7 @@ function Hero() {
           </button>
         </div>
       </header>
-      
+
       {showCards && <ServicesCard />}
       <div style={footerStyle}>
         <footer>
@@ -191,6 +142,7 @@ function Hero() {
         </footer>
       </div>
     </div>
+    </Layout>
   );
 }
 
