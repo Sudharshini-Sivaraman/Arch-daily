@@ -21,7 +21,7 @@ function Navbar() {
           </button>
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <ul className="md:hidden bg-black absolute top-16 left-0 right-0 z-10 text-white">
+            <ul className="md:hidden bg-gray-700 absolute top-16 left-0 right-0 z-10 text-white">
               <li className="text-white hover:text-gray-300 py-2 text-center">
                 <a href="/">Home</a>
               </li>
@@ -31,9 +31,7 @@ function Navbar() {
               <li className="text-white hover:text-gray-300 py-2 text-center">
                 <a href="/services">Services</a>
               </li>
-              <li className="text-white hover:text-gray-300 py-2 text-center">
-                <a href="/portfolio">Portfolio</a>
-              </li>
+             
               <li className="text-white hover:text-gray-300 py-2 text-center">
                 <a href="/contact">Contact</a>
               </li>
@@ -50,9 +48,7 @@ function Navbar() {
             <li>
               <a href="/services">Services</a>
             </li>
-            <li>
-              <a href="/portfolio">Portfolio</a>
-            </li>
+            
             <li>
               <a href="/contact">Contact</a>
             </li>

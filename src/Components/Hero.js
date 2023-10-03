@@ -5,16 +5,6 @@ const commonBackgroundStyle = {
   backgroundPosition: 'center',
   backgroundImage: 'url("https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fHww&w=1000&q=80")',
 };
-const headerStyle = {
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  padding: '1rem',
-  color: 'white',
-  position: 'fixed', 
-  top: 0, 
-  left: 0,
-  right: 0,
-  zIndex: 1000, 
-};
 
 const footerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -130,17 +120,7 @@ function Hero() {
       </header>
 
       {showCards && <ServicesCard />}
-      <div style={footerStyle}>
-        <footer>
-          <div className="container mx-auto text-center text-white">
-            <p>
-              &copy; {new Date().getFullYear()} S Architecture. All rights
-              reserved.
-            </p>
-            <p>Contact: contact@sarchitecture.com</p>
-          </div>
-        </footer>
-      </div>
+     
     </div>
     </Layout>
   );
